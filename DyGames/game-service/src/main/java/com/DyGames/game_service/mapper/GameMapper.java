@@ -1,12 +1,18 @@
 package com.DyGames.game_service.mapper;
 
+import com.DyGames.game_service.client.CategoryClient;
 import com.DyGames.game_service.dto.GameRespuesta;
 import com.DyGames.game_service.model.Game;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 @Component
 public class GameMapper {
+
+    @Autowired
+    private CategoryClient categoryClient;
 
     public GameRespuesta toDTO(Game game) {
         if (game == null) return null;
@@ -17,7 +23,7 @@ public class GameMapper {
         gr.setPrecio(game.getPrecio());
         gr.setFechaLanzamiento(game.getFechaLanzamiento());
         gr.setCoverUrl(game.getCoverUrl());
-        gr.setCategoriaId(game.getCategoriaId());
+        gr.setCategoria(categoryClient.buscarCategoriaPorId(game.getCategoriaId()));
         return gr;
     }
 

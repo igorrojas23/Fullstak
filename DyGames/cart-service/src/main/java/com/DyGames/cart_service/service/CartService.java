@@ -2,11 +2,13 @@ package com.DyGames.cart_service.service;
 
 import com.DyGames.cart_service.client.GameClient;
 import com.DyGames.cart_service.dto.CartRespuesta;
+import com.DyGames.cart_service.dto.GameRespuesta;
 import com.DyGames.cart_service.mapper.CartMapper;
 import com.DyGames.cart_service.model.Cart;
 import com.DyGames.cart_service.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -30,8 +32,8 @@ public class CartService {
     }
 
     public Cart save(Cart cart) {
-        // Verifica que el juego existe en game-service via Feign
-        Object juego = gameClient.buscarJuegoPorId(cart.getJuegoId());
+        // Verifica que el juego existe en game-service via Feign (ahora tipado)
+        GameRespuesta juego = gameClient.buscarJuegoPorId(cart.getJuegoId());
         if (juego == null) {
             throw new RuntimeException("El juego no existe");
         }

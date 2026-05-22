@@ -1,6 +1,6 @@
-package com.DyGames.cart_service.client;
+package com.DyGames.review_service.client;
 
-import com.DyGames.cart_service.dto.GameRespuesta;
+import com.DyGames.review_service.dto.GameRespuesta;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

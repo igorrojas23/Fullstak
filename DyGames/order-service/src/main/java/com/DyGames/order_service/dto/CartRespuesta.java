@@ -4,11 +4,11 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class OrderRespuesta {
+public class CartRespuesta {
 
     private Long id;
-    private UserRespuesta usuario;
-    private Double total;
-    private String estado;
+    private Long usuarioId;
+    private Long juegoId;
+    private Double precio;
     private LocalDateTime creadoEn;
 }

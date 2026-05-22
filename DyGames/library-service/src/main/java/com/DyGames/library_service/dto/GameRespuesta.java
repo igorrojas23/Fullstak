@@ -1,6 +1,5 @@
-package com.DyGames.game_service.dto;
+package com.DyGames.library_service.dto;
 
-import com.DyGames.game_service.dto.CategoryRespuesta;
 import lombok.Data;
 import java.time.LocalDate;
 
@@ -13,5 +12,5 @@ public class GameRespuesta {
     private Double precio;
     private LocalDate fechaLanzamiento;
     private String coverUrl;
-    private CategoryRespuesta categoria;
+    private Long categoriaId;
 }
